@@ -1,0 +1,113 @@
+{
+  "_version": "1.37.0",
+  "sap.app": {
+    "id": "com.cfin.zcfinmjedashapr",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.29.0",
+      "toolsId": "477b9659-fcad-4ede-935c-d61c0217a49a"
+    },
+    "dataSources": {
+      "ZFITR_EXP_HEDGE_POSITION_SRV": {
+                "uri": "/sap/opu/odata/sap/ZFITR_EXP_HEDGE_POSITION_SRV/",
+                "type": "OData",
+                "settings": {
+                    
+                }
+            }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.96.14",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cfin.zcfinmjedashapr.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "ZFITR_EXP_HEDGE_POSITION_SRV",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.cfin.zcfinmjedashapr.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteZView1",
+          "pattern": ":?query:",
+          "target": [
+            "TargetZView1"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetZView1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "ZView1",
+          "viewName": "ZView1"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.cfin.zcfinmjedashapr.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

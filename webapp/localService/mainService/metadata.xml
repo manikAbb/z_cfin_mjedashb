@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/><edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZFITR_EXP_HEDGE_POSITION_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"><Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+			<EntityType Name="pos_details" sap:content-version="1">
+				<Key><PropertyRef Name="PositionId"/></Key><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Status" sap:creatable="false"
+					sap:updatable="false"/><Property Name="PositionId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Position ID"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country Key" sap:creatable="false"
+					sap:updatable="false"/><Property Name="ExpType" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Exp.Pos.Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ExpTypeT" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Exp.Pos.Type Txt"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TransactionCat" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Exposure Category"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Rcomp" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Company" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Company Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PlanningPeriod" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Period"
+					sap:creatable="false" sap:updatable="false"/><Property Name="PlanningYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Planning Year"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Gsber" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Business Area" sap:creatable="false"
+					sap:updatable="false"/><Property Name="GsberTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Business Area Txt"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Division" sap:creatable="false"
+					sap:updatable="false"/><Property Name="DivisionTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Division Txt"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pggroup" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Product Grp" sap:creatable="false"
+					sap:updatable="false"/><Property Name="PggroupTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Product Grp Txt"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Prctr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Profit Center" sap:creatable="false"
+					sap:updatable="false"/><Property Name="PrctrTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="PC Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TransactionCatT" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Exp Cat"
+					sap:creatable="false" sap:updatable="false"/><Property Name="ExpAmt" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:unicode="false" sap:unit="ExpCurr"
+					sap:label="Exposure Amount" sap:creatable="false" sap:updatable="false" sap:filterable="false"/><Property Name="BuySell" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Buy/Sell" sap:creatable="false"
+					sap:updatable="false"/><Property Name="ExpCurr" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Exposure Curr"
+					sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/><Property Name="TargetCurr" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Target Curr"
+					sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/><Property Name="HedgedAmt" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:unicode="false" sap:unit="ExpCurr"
+					sap:label="Hedged Amount" sap:creatable="false" sap:updatable="false" sap:filterable="false"/><Property Name="UnhedgedAmt" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:unicode="false" sap:unit="ExpCurr"
+					sap:label="Unhedged Amount" sap:creatable="false" sap:updatable="false" sap:filterable="false"/><Property Name="ThCurr" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Threshold Currency"
+					sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/><Property Name="ExpThAmt" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:unicode="false" sap:unit="ExpCurr"
+					sap:label="Threshold Amt in Exp Curr" sap:creatable="false" sap:updatable="false" sap:filterable="false"/><Property Name="ThAmt" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:unicode="false" sap:unit="ThCurr"
+					sap:label="Threshold Amount" sap:creatable="false" sap:updatable="false" sap:filterable="false"/><Property Name="DueDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Due Date"
+					sap:creatable="false" sap:updatable="false"/><Property Name="DisplayAmt" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:unicode="false" sap:unit="DisplayCurr"
+					sap:label="Display Amount" sap:creatable="false" sap:updatable="false"/><Property Name="DisplayCurr" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Display Curr"
+					sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/><Property Name="Kurst" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Exchange Rate Type"
+					sap:creatable="false" sap:updatable="false"/><Property Name="EntityType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Entity Type"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Pososguid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Pos GUID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Maxhedge" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:unit="ExpCurr" sap:label=" Maximum Hedge"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Proposedhedge" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:unit="ExpCurr" sap:label="Proposed Hedge"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Reqamt" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:unit="ExpCurr" sap:label="Req Amt"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Reqoption" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Component of the Version Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="pos_idSet" Relationship="ZFITR_EXP_HEDGE_POSITION_SRV.Position_id" FromRole="FromRole_Position_id"
+					ToRole="ToRole_Position_id"/></EntityType>
+			<EntityType Name="hedge_download" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="PositionId"/></Key><Property Name="PositionId" Type="Edm.String" Nullable="false" MaxLength="999" sap:unicode="false" sap:label="Position ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MimeType" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><NavigationProperty Name="hedge_downloadposSet" Relationship="ZFITR_EXP_HEDGE_POSITION_SRV.pos_hedge_download"
+					FromRole="FromRole_pos_hedge_download" ToRole="ToRole_pos_hedge_download"/></EntityType>
+			<EntityType Name="pos_id" sap:content-version="1">
+				<Key><PropertyRef Name="PositionId"/></Key><Property Name="Status" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="PositionId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Position ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Land1" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Country Key" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ExpType" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Exp.Pos.Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ExpTypeT" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Exp.Pos.Type Txt" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TransactionCat" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Exposure Category" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bukrs" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Rcomp" Type="Edm.String" MaxLength="6" sap:unicode="false" sap:label="Company" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Butxt" Type="Edm.String" MaxLength="25" sap:unicode="false" sap:label="Company Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PlanningPeriod" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Period" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PlanningYear" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Planning Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gsber" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Business Area" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="GsberTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Business Area Txt" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Division" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Division" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DivisionTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Division Txt" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pggroup" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Product Grp" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PggroupTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Product Grp Txt" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Prctr" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Profit Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PrctrTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="PC Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TransactionCatT" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Exp Cat" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ExpAmt" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Exposure Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="BuySell" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Buy/Sell" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ExpCurr" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Exposure Curr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TargetCurr" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Target Curr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="HedgedAmt" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Hedged Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="UnhedgedAmt" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Unhedged Amount"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ThCurr" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Threshold Currency" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ExpThAmt" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Threshold Amt in Exp Curr"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ThAmt" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Threshold Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DueDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Due Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DisplayAmt" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Display Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DisplayCurr" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Display Curr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kurst" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Exchange Rate Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EntityType" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Entity Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pososguid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Pos GUID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Maxhedge" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Maximum Hedge" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Proposedhedge" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Proposed Hedge"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hedgereq" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Hedge Request" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Reqoption" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Component of the Version Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="C_CompanyCodeValueHelpType" sap:label="Company Code Value Help" sap:content-version="1">
+				<Key><PropertyRef Name="CompanyCode"/></Key><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCodeName"
+					sap:label="Company Code"/><Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company"/></EntityType>
+			<EntityType Name="I_ITRExchangeRateTypeVHType" sap:label="Exchange Rate Type" sap:content-version="1">
+				<Key><PropertyRef Name="ExchangeRateType"/></Key><Property Name="ExchangeRateType" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="ExchangeRateType_Text" sap:label="Exchange Rate Type"/><Property Name="ExchangeRateType_Text" Type="Edm.String" MaxLength="40" sap:label="Usage" sap:quickinfo="Exchange rate type usage"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="SEPMRA_C_CurrencyValueHelpType" sap:label="Currency" sap:content-version="1">
+				<Key><PropertyRef Name="Currency"/></Key><Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="CurrencyT" sap:label="Currency"
+					sap:quickinfo="Currency Key" sap:semantics="currency-code"/><Property Name="CurrencyT" Type="Edm.String" MaxLength="40" sap:attribute-for="Currency" sap:label="Name" sap:quickinfo="Currency Name"/></EntityType>
+			<EntityType Name="ZCF_CDS_ProfitcenterType" sap:label="Profit Center Data" sap:content-version="1">
+				<Key><PropertyRef Name="prctr"/><PropertyRef Name="datbi"/><PropertyRef Name="kokrs"/></Key><Property Name="prctr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Profit Center"/><Property Name="datbi" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Valid To"
+					sap:quickinfo="Valid To Date"/><Property Name="kokrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Controlling Area"/><Property Name="lock_ind" Type="Edm.String" MaxLength="1" sap:label="Lock indicator"/><Property Name="datab" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid From" sap:quickinfo="Valid-From Date"/><Property Name="ktext" Type="Edm.String" MaxLength="20" sap:label="Name" sap:quickinfo="General Name"/></EntityType>
+			<EntityType Name="ZFITR_CDS_PLANNING_PERIODType" sap:label="CDS for Planning Period" sap:content-version="1">
+				<Key><PropertyRef Name="planning_period"/></Key><Property Name="planning_period" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="period_text"
+					sap:label="Period" sap:quickinfo="Planning Period"/><Property Name="period_text" Type="Edm.String" MaxLength="20" sap:label="Period Text" sap:quickinfo="Planning Period Description"/></EntityType>
+			<EntityType Name="ZFITR_CDS_POSITION_IDType" sap:label="CDS for position ID" sap:content-version="1">
+				<Key><PropertyRef Name="position_id"/></Key><Property Name="position_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase"
+					sap:label="Exposure Position ID"/></EntityType>
+			<EntityType Name="ZFITR_CDS_PRCTR_SHType" sap:label="Search Help For Profit Center" sap:content-version="1">
+				<Key><PropertyRef Name="prctr"/></Key><Property Name="prctr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="prctrtxt"
+					sap:label="Profit Center"/><Property Name="prctrtxt" Type="Edm.String" MaxLength="20" sap:label="Name" sap:quickinfo="General Name"/></EntityType>
+			<Association Name="pos_hedge_download" sap:content-version="1"><End Type="ZFITR_EXP_HEDGE_POSITION_SRV.hedge_download" Multiplicity="1" Role="FromRole_pos_hedge_download"/><End Type="ZFITR_EXP_HEDGE_POSITION_SRV.pos_id" Multiplicity="*" Role="ToRole_pos_hedge_download"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_pos_hedge_download"><PropertyRef Name="PositionId"/></Principal>
+					<Dependent Role="ToRole_pos_hedge_download"><PropertyRef Name="PositionId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Position_id" sap:content-version="1"><End Type="ZFITR_EXP_HEDGE_POSITION_SRV.pos_details" Multiplicity="1" Role="FromRole_Position_id"/><End Type="ZFITR_EXP_HEDGE_POSITION_SRV.pos_id" Multiplicity="*" Role="ToRole_Position_id"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Position_id"><PropertyRef Name="PositionId"/></Principal>
+					<Dependent Role="ToRole_Position_id"><PropertyRef Name="PositionId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZFITR_EXP_HEDGE_POSITION_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="C_CompanyCodeValueHelp" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.C_CompanyCodeValueHelpType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_ITRExchangeRateTypeVH" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.I_ITRExchangeRateTypeVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="SEPMRA_C_CurrencyValueHelp" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.SEPMRA_C_CurrencyValueHelpType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZCF_CDS_Profitcenter" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.ZCF_CDS_ProfitcenterType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="ZFITR_CDS_PLANNING_PERIOD" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.ZFITR_CDS_PLANNING_PERIODType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="ZFITR_CDS_POSITION_ID" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.ZFITR_CDS_POSITION_IDType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZFITR_CDS_PRCTR_SH" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.ZFITR_CDS_PRCTR_SHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="pos_detailsSet" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.pos_details" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="hedge_downloadSet" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.hedge_download" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="pos_idSet" EntityType="ZFITR_EXP_HEDGE_POSITION_SRV.pos_id" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="pos_hedge_downloadSet" Association="ZFITR_EXP_HEDGE_POSITION_SRV.pos_hedge_download" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="hedge_downloadSet" Role="FromRole_pos_hedge_download"/><End EntitySet="pos_idSet" Role="ToRole_pos_hedge_download"/></AssociationSet>
+				<AssociationSet Name="Position_idSet" Association="ZFITR_EXP_HEDGE_POSITION_SRV.Position_id" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="pos_detailsSet" Role="FromRole_Position_id"/><End EntitySet="pos_idSet" Role="ToRole_Position_id"/></AssociationSet>
+			</EntityContainer>
+			<Annotations Target="ZFITR_EXP_HEDGE_POSITION_SRV.ZFITR_EXP_HEDGE_POSITION_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm"><Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/></Annotations>
+			<Annotations Target="ZFITR_EXP_HEDGE_POSITION_SRV.C_CompanyCodeValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>CompanyCode</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZFITR_EXP_HEDGE_POSITION_SRV.ZFITR_CDS_PRCTR_SHType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>prctr</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link rel="self"
+				href="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/sap/ZFITR_EXP_HEDGE_POSITION_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version"
+				href="https://webidecp-si67i0dt1j.dispatcher.eu2.hana.ondemand.com/destinations/CFIN_DEV_CF6_200/sap/opu/odata/sap/ZFITR_EXP_HEDGE_POSITION_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
