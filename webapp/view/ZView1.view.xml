@@ -1,7 +1,65 @@
-<mvc:View controllerName="com.cfin.zcfinmjedashapr.controller.ZView1"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
+<mvc:View
+    controllerName="com.cfin.zcfinmjedashapr.controller.ZView1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <IconTabBar
+                id="idIconTabBar"
+                select=".onFilterSelect"
+                expandable="false"
+                expanded="true"
+                class="sapUiResponsiveContentPadding"
+            >
+                <items>
+                    <IconTabFilter
+                        icon="sap-icon://home"
+                        text="{i18n>xtit.TotalRquests}"
+                        key="0"
+                        count="{oMainModel>/aCountReq}"
+                    >
+                        <content>
+                            <VBox class="sapUiSmallMargin">
+                                 <core:Fragment fragmentName="com.cfin.zcfinmjedashapr.view.fragments.dashboard.ZMappingFieldTable" type="XML"/>		
+                            </VBox>
+                        </content>
+                    </IconTabFilter>
+
+                    <IconTabFilter
+                        icon="sap-icon://checklist"
+                        text="{i18n>xtit.ApprovedRequest}"
+                        key="1"
+                        count="{oMainModel>/aCountApprovedReq}"
+                    >
+                        <content>
+                            <VBox class="sapUiSmallMargin">
+                                <Text text=" " />
+                                <!--<core:Fragment fragmentName="cfin.custom.zblocklistgovern.view.fragments.myrequests.ZFilterbar" type="XML"/>	
+                  		  <core:Fragment fragmentName="cfin.custom.zblocklistgovern.view.fragments.myrequests.ZRefreshDashboard" type="XML"/>	
+						  <core:Fragment fragmentName="cfin.custom.zblocklistgovern.view.fragments.myrequests.ZMyRequestsTable" type="XML"/>	-->
+                            </VBox>
+                        </content>
+                    </IconTabFilter>
+                    <IconTabFilter
+                        icon="sap-icon://cancel"
+                        text="{i18n>xtit.RejectedRequest}"
+                        key="2"
+                        count="{oMainModel>/aCountRejectReq}"
+                    >
+                        <content>
+                            <VBox class="sapUiSmallMargin">
+                                <Text text=" " />
+                            </VBox>
+                        </content>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
     </Page>
 </mvc:View>

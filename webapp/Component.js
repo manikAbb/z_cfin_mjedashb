@@ -5,9 +5,10 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "com/cfin/zcfinmjedashapr/model/models"
+        "com/cfin/zcfinmjedashapr/model/models",
+        "sap/ui/model/json/JSONModel",
     ],
-    function (UIComponent, Device, models) {
+    function (UIComponent, Device, models,JSONModel) {
         "use strict";
 
         return UIComponent.extend("com.cfin.zcfinmjedashapr.Component", {
@@ -26,7 +27,12 @@ sap.ui.define([
 
                 // enable routing
                 this.getRouter().initialize();
-
+                var oViewModel = new JSONModel ({
+                    aCountReq:"0",
+                    aCountApprovedReq:"0",
+                    aCountRejectReq:"0"
+                });
+                this.setModel(oViewModel, "oMainModel");
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
             }
