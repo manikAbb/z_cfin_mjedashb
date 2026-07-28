@@ -12,6 +12,11 @@
                           <smartFilterBar:ControlConfiguration   key="Blart" label="{i18n>xtit.Blart}" index="7" groupId="_BASIC"  />
                     </smartFilterBar:controlConfiguration>
                      </smartFilterBar:SmartFilterBar>
+                     <ScrollContainer 
+                        width="100%" 
+                        horizontal="true" 
+                        vertical="false" 
+                        focusable="true">
                     <smartTable:SmartTable
                         id="idMappingSmartTable"
                         entitySet="MJE_DETAILSSet"
@@ -23,7 +28,7 @@
                         tableType="ResponsiveTable"
                         showRowCount="true"
                         class="sapUiResponsiveContentPadding"
-                        demandPopin="true"
+                        demandPopin="false"
                         displayInline="false"
                         useVariantManagement="true"
                         enableAutoBinding="true"
@@ -38,96 +43,96 @@
                                 <Button icon="sap-icon://cancel" tooltip="{i18n>xbut.Reject}" text="{i18n>xbut.Reject}" type="Emphasized" press="onPressMultiReject" enabled="true" />
                             </Toolbar>
                         </smartTable:customToolbar>
-                        <Table id="idMappingTable"  class="sapUiTinyMarginTop" mode="MultiSelect" selectionChange="onItemSelect" growing="true" growingScrollToLoad="true" updateFinished="onTableCheckBoxEnable" sticky="ColumnHeaders,HeaderToolbar" selectAll="onSelectAll">
+                        <Table id="idMappingTable" fixedLayout="Strict"   class="sapUiTinyMarginTop" mode="MultiSelect" selectionChange="onItemSelect" growing="true" growingScrollToLoad="true" updateFinished="onTableCheckBoxEnable" sticky="ColumnHeaders,HeaderToolbar" >
                             <columns>
-                                <Column>
+                                <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Bukrs","columnIndex":"0", "autoColumnWidth":"Bukrs", "leadingProperty": "Bukrs", "sortProperty": "Bukrs", "filterProperty": "Bukrs"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Bukrs","columnIndex":"0",  "leadingProperty": "Bukrs", "sortProperty": "Bukrs", "filterProperty": "Bukrs"}' />
                                     </customData>
                                    <Text text="{i18n>xtit.Bukrs}"/>
                                 </Column>
-                                 <Column >
+                                 <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Monat", "autoColumnWidth": true, "columnIndex":"1",  "leadingProperty": "Monat", "sortProperty": "Monat", "filterProperty": "Monat"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Monat",  "columnIndex":"1",  "leadingProperty": "Monat", "sortProperty": "Monat", "filterProperty": "Monat"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Monat}"/>
                                 </Column>
-                                <Column >
+                                <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Gjahr", "autoColumnWidth": true, "columnIndex":"2",  "leadingProperty": "Gjahr", "sortProperty": "Gjahr", "filterProperty": "Gjahr"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Gjahr", "columnIndex":"2",  "leadingProperty": "Gjahr", "sortProperty": "Gjahr", "filterProperty": "Gjahr"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Gjahr}"/>
                                 </Column>
                                 
-                               <Column >
+                               <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "RiskLevel", "autoColumnWidth": true, "columnIndex":"3",  "leadingProperty": "RiskLevel", "sortProperty": "RiskLevel", "filterProperty": "RiskLevel"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "RiskLevel", "columnIndex":"3",  "leadingProperty": "RiskLevel", "sortProperty": "RiskLevel", "filterProperty": "RiskLevel"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.RiskLevel}"/>
                                 </Column>
-                                  <Column >
+                                  <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "UserTag", "autoColumnWidth": true, "columnIndex":"4",  "leadingProperty": "UserTag", "sortProperty": "CreatedOn", "filterProperty": "UserTag"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "UserTag", "columnIndex":"4",  "leadingProperty": "UserTag", "sortProperty": "CreatedOn", "filterProperty": "UserTag"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.UserTag}"/>
                                 </Column>
-                                 <Column >
+                                 <Column width="100px"  >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Tcode", "autoColumnWidth": true, "columnIndex":"5",  "leadingProperty": "Tcode", "sortProperty": "CreatedOn", "filterProperty": "Tcode"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Tcode",  "columnIndex":"5",  "leadingProperty": "Tcode", "sortProperty": "CreatedOn", "filterProperty": "Tcode"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Tcode}"/>
                                 </Column>
-                                  <Column >
+                                  <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Blart", "autoColumnWidth": true, "columnIndex":"6",  "leadingProperty": "Blart", "sortProperty": "CreatedOn", "filterProperty": "Blart"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Blart",  "columnIndex":"6",  "leadingProperty": "Blart", "sortProperty": "CreatedOn", "filterProperty": "Blart"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Blart}"/>
                                 </Column>
-                                 <Column >
+                                 <Column width="100px"  >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Belnr", "autoColumnWidth": true, "columnIndex":"8",  "leadingProperty": "Belnr", "sortProperty": "Belnr", "filterProperty": "Belnr"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Belnr",  "columnIndex":"7",  "leadingProperty": "Belnr", "sortProperty": "Belnr", "filterProperty": "Belnr"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Belnr}"/>
                                 </Column>
-                                 <Column >
+                                 <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Racct", "autoColumnWidth": true, "columnIndex":"9",  "leadingProperty": "Racct", "sortProperty": "Racct", "filterProperty": "Racct"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Racct",  "columnIndex":"8",  "leadingProperty": "Racct", "sortProperty": "Racct", "filterProperty": "Racct"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Racct}"/>
                                 </Column>
-                                <Column >
+                                <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Koart", "autoColumnWidth": true, "columnIndex":"10",  "leadingProperty": "Koart", "sortProperty": "Koart", "filterProperty": "Koart"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Koart",  "columnIndex":"9",  "leadingProperty": "Koart", "sortProperty": "Koart", "filterProperty": "Koart"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Koart}"/>
                                 </Column>
-                                 <Column >
+                                 <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Hsl", "autoColumnWidth": true, "columnIndex":"11",  "leadingProperty": "Hsl", "sortProperty": "Hsl", "filterProperty": "Hsl"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Hsl",  "columnIndex":"10",  "leadingProperty": "Hsl", "sortProperty": "Hsl", "filterProperty": "Hsl"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Hsl}"/>
                                 </Column>
-                                 <Column >
+                                 <Column width="100px"  >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Rhcur", "autoColumnWidth": true, "columnIndex":"12",  "leadingProperty": "Rhcur", "sortProperty": "Rhcur", "filterProperty": "Rhcur"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Rhcur",  "columnIndex":"11",  "leadingProperty": "Rhcur", "sortProperty": "Rhcur", "filterProperty": "Rhcur"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Rhcur}"/>
                                 </Column>
-                                 <Column >
+                                 <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "ScopeFlag", "autoColumnWidth": true, "columnIndex":"13",  "leadingProperty": "ScopeFlag", "sortProperty": "ScopeFlag", "filterProperty": "ScopeFlag"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "ScopeFlag",  "columnIndex":"12",  "leadingProperty": "ScopeFlag", "sortProperty": "ScopeFlag", "filterProperty": "ScopeFlag"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.ScopeFlag}"/>
                                 </Column>
-                                <Column >
+                                <Column width="100px" >
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "ScopeReason", "autoColumnWidth": true, "columnIndex":"14",  "leadingProperty": "ScopeReason", "sortProperty": "ScopeReason", "filterProperty": "ScopeReason"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "ScopeReason",  "columnIndex":"13",  "leadingProperty": "ScopeReason", "sortProperty": "ScopeReason", "filterProperty": "ScopeReason"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.ScopeReason}"/>
                                 </Column>
-                                 <Column >
+                                 <Column width="100px">
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Reviewer", "autoColumnWidth": true, "columnIndex":"15",  "leadingProperty": "Reviewer", "sortProperty": "Reviewer", "filterProperty": "Reviewer"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Reviewer", "columnIndex":"14",  "leadingProperty": "Reviewer", "sortProperty": "Reviewer", "filterProperty": "Reviewer"}' />
                                     </customData>
                                     <Text text="{i18n>xtit.Reviewer}"/>
                                 </Column>
@@ -149,44 +154,42 @@
                                          <Text text="{Gjahr}" />
                                         </cells>
                                         <cells>
-                                             <Text text="{RiskLevel}" wrapping="false"/>
+                                             <Text text="{RiskLevel}"/>
                                         </cells>
                                        
                                         <cells>
-                                             <Text text="{UserTag}" wrapping="false"/>
+                                             <Text text="{UserTag}" />
                                         </cells>
                                         <cells>
-                                             <Text text="{Tcode}" wrapping="false"/>
+                                             <Text text="{Tcode}"  />
                                         </cells>
                                          <cells>
-                                             <Text text="{Blart}" wrapping="false"/>
+                                             <Text text="{Blart}" />
                                         </cells>
                                         <cells>
-                                             <Text text="{Belnr}" wrapping="false"/>
+                                             <Link text="{Belnr}" press="onPressDocNo"/>
                                         </cells>
                                          <cells>
-                                             <Text text="{Racct}" wrapping="false"/>
+                                             <Text text="{Racct}" />
                                         </cells>
                                           <cells>
-                                             <Text text="{Koart}" wrapping="false"/>
+                                             <Text text="{Koart}" />
                                         </cells>
                                          <cells>
-                                             <Text text="{Hsl}" wrapping="false"/>
+                                             <Text text="{Hsl}" />
                                         </cells>
+                                        
                                          <cells>
-                                             <Text text="{Koart}" wrapping="false"/>
-                                        </cells>
-                                         <cells>
-                                             <Text text="{Rhcur}" wrapping="false"/>
+                                             <Text text="{Rhcur}" />
                                         </cells>
                                         <cells>
-                                             <Text text="{ScopeFlag}" wrapping="false"/>
+                                             <Text text="{ScopeFlag}" />
                                         </cells>
                                         <cells>
-                                             <Text text="{ScopeReason}" wrapping="false"/>
+                                             <Text text="{ScopeReason}"/>
                                         </cells>
                                         <cells>
-                                             <Text text="{Reviewer}" wrapping="false"/>
+                                             <Text text="{Reviewer}" />
                                         </cells>
                                       
                                         
@@ -196,5 +199,6 @@
                             </items>
                         </Table>
                     </smartTable:SmartTable>
+                 </ScrollContainer>
 </Panel>
 </core:FragmentDefinition>
