@@ -21,7 +21,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             var oBj = oEvent.getSource().getBindingContext().getObject(),
             sUrl= "#AccountingDocument-manage?"+"CompanyCode="+oBj.Bukrs;
             console.log(sUrl)
-            //this._onOpenApp(sUrl);
+            this._onOpenApp(sUrl);
         },
         _onOpenApp:function(sUrl){
             var sPathname = window.location.pathname + window.location.search + sUrl;
@@ -33,6 +33,19 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             if(oSelectedItems.length > 0){  
                 this._OpenCommentsBox().then(function(){
                     this._sendMultipleRequestForApproval(oSelectedItems,"APPROVED");
+                }.bind(this)).catch(function(){
+                    console.log("press cancel");
+                })
+            }else{
+                MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
+            }
+        },
+        onPressMultiReject:function(oEvent){
+            var oTable = this._oView.byId("idMappingTable"),
+                oSelectedItems = oTable.getSelectedItems();
+            if(oSelectedItems.length > 0){  
+                this._OpenCommentsBox().then(function(){
+                    this._sendMultipleRequestForApproval(oSelectedItems,"REJECTED");
                 }.bind(this)).catch(function(){
                     console.log("press cancel");
                 })
