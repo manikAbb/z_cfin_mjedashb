@@ -6,7 +6,7 @@
     "metadataFilename": "",
     "serviceUrl": "http://gl-cf6-100-d.abb.com:443/sap/opu/odata/sap/ZFITR_EXP_HEDGE_POSITION_SRV",
     "appName": "zcfinmjedashapr",
-    "appTitle": "MJE Dashboard Approval",
+    "appTitle": "MJE Approval Dashboard",
     "appDescription": "An SAP Fiori application.",
     "appNamespace": "com.cfin",
     "ui5Theme": "sap_fiori_3",

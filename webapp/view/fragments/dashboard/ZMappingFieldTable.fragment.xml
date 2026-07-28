@@ -61,12 +61,7 @@
                                     </customData>
                                     <Text text="{i18n>xtit.ChangedOn}"/>
                                 </Column>
-                                 <Column >
-                                    <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Actions", "autoColumnWidth": true, "columnIndex":"5"}' />
-                                    </customData>
-                                    <Text text="{i18n>xtit.Actions}"/>
-                                </Column>
+                                
                                 
                            
                             </columns>
@@ -88,12 +83,7 @@
                                         <cells>
                                              <Text text="{path:'ChangedOn',type:'sap.ui.model.odata.type.DateTime',formatOptions:{pattern:'dd/MM/YYYY'}}" wrapping="false"/>
                                         </cells>
-                                        <cells>
-                                            <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginBegin">
-                                                <Button icon="sap-icon://accept" type="Accept" press="onPressApprove" tooltip="{i18n>xtit.Approve}" />
-                                                <Button icon="sap-icon://cancel" type="Reject" press="onPressReject" tooltip="{i18n>xtit.Reject}" class="sapUiTinyMarginBegin"/>
-                                            </HBox>
-                                        </cells>
+                                        
                                        
                                 </ColumnListItem>
                             </items>

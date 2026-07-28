@@ -9,7 +9,7 @@
 |**Service Type**<br>SAP System (ABAP On-Premise)|
 |**Service URL**<br>http://gl-cf6-100-d.abb.com:443/sap/opu/odata/sap/ZFITR_EXP_HEDGE_POSITION_SRV|
 |**Module Name**<br>zcfinmjedashapr|
-|**Application Title**<br>MJE Dashboard Approval|
+|**Application Title**<br>MJE Approval Dashboard|
 |**Namespace**<br>com.cfin|
 |**UI5 Theme**<br>sap_fiori_3|
 |**UI5 Version**<br>1.96.14|
