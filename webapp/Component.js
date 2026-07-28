@@ -30,7 +30,10 @@ sap.ui.define([
                 var oViewModel = new JSONModel ({
                     aCountReq:"0",
                     aCountApprovedReq:"0",
-                    aCountRejectReq:"0"
+                    aCountRejectReq:"0",
+                    oDialogComments:{
+                        sDescription:""
+                    }
                 });
                 this.setModel(oViewModel, "oMainModel");
                 // set the device model

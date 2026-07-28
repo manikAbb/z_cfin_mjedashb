@@ -18,7 +18,7 @@
                         vertical="false" 
                         focusable="true">
                     <smartTable:SmartTable
-                        id="idMappingSmartTable"
+                        id="idMappiidMappingTablengSmartTable"
                         entitySet="MJE_DETAILSSet"
                         smartFilterId="idSmrtFitrHeader1"
                         useExportToExcel="true"
