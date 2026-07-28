@@ -92,7 +92,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 this._onPressAddComments();
             }.bind(this))
         },
-        _onPressAddComments: function (mParam) {
+        _onPressAddComments: function () {
             if (!this._oDialogAddComments) {
                 Fragment.load({
                     name: "com.cfin.zcfinmjedashapr.view.fragments.dashboard.ZAddComments",
