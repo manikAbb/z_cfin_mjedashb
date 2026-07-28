@@ -14,8 +14,8 @@
                      </smartFilterBar:SmartFilterBar>
                     <smartTable:SmartTable
                         id="idMappingSmartTable"
-                        
-                        smartFilterId=""
+                        entitySet="MJE_DETAILSSet"
+                        smartFilterId="idSmrtFitrHeader1"
                         useExportToExcel="true"
                         useTablePersonalisation="true"
                         header="{i18n>xtit.tblHeader}"
@@ -131,12 +131,7 @@
                                     </customData>
                                     <Text text="{i18n>xtit.Reviewer}"/>
                                 </Column>
-                                 <Column >
-                                    <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "RiskLevel", "autoColumnWidth": true, "columnIndex":"16",  "leadingProperty": "RiskLevel", "sortProperty": "RiskLevel", "filterProperty": "RiskLevel"}' />
-                                    </customData>
-                                    <Text text="{i18n>xtit.RiskLevel}"/>
-                                </Column>
+                                
                                 
                                 
                                 
@@ -193,9 +188,7 @@
                                         <cells>
                                              <Text text="{Reviewer}" wrapping="false"/>
                                         </cells>
-                                        <cells>
-                                             <Text text="{RiskLevel}" wrapping="false"/>
-                                        </cells>
+                                      
                                         
                                         
                                        
