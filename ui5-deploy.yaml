@@ -18,10 +18,10 @@ builder:
           url: http://gl-cf6-100-d.abb.com:443
           client: '100'
         app:
-          name: ZABCD
+          name: ZCFINMJEDASHAPR
           description: MJE Approval Dashboard
-          package: $TMP
-          transport: ''
+          package: ZCFIN_FIORI
+          transport: CF6K934600
         exclude:
           - /test/
           - /localService/
