@@ -16,8 +16,8 @@
       "toolsId": "477b9659-fcad-4ede-935c-d61c0217a49a"
     },
     "dataSources": {
-      "ZFITR_EXP_HEDGE_POSITION_SRV": {
-                "uri": "/sap/opu/odata/sap/ZFITR_EXP_HEDGE_POSITION_SRV/",
+      "mainservice": {
+                "uri": "/sap/opu/odata/sap/ZCF_MJE_LINES_APPROVAL_SRV/",
                 "type": "OData",
                 "settings": {
                     
@@ -62,7 +62,7 @@
         }
       },
       "": {
-        "dataSource": "ZFITR_EXP_HEDGE_POSITION_SRV",
+        "dataSource": "mainservice",
         "preload": true,
         "settings": {}
       }

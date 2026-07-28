@@ -1,7 +1,17 @@
-<core:FragmentDefinition xmlns:html="http://www.w3.org/1999/xhtml" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartField="sap.ui.comp.smartfield" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m" xmlns:core="sap.ui.core">
+<core:FragmentDefinition xmlns:html="http://www.w3.org/1999/xhtml" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartField="sap.ui.comp.smartfield" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"   xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns="sap.m" xmlns:core="sap.ui.core">
    
 <Panel headerText="{i18n>xtit.ApprovalRequests}" class="sapUiSmallMarginTop" expandable="true" expanded="true">
-
+                    <smartFilterBar:SmartFilterBar filterChange="onFilteChange" id="idSmrtFitrHeader1"   entitySet="MJE_DETAILSSet"  persistencyKey="HeaderPersKeyFltr" search="onFilterbarSearch" showClearOnFB="true" enableBasicSearch="false" >
+                     <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration   key="Bukrs" label="{i18n>xtit.Bukrs}" index="1" groupId="_BASIC" />
+                        <smartFilterBar:ControlConfiguration   key="Monat" label="{i18n>xtit.Monat}" index="2" groupId="_BASIC" />
+                        <smartFilterBar:ControlConfiguration   key="Gjahr" label="{i18n>xtit.Gjahr}" index="3" groupId="_BASIC" />
+                        <smartFilterBar:ControlConfiguration   key="RiskLevel" label="{i18n>xtit.RiskLevel}" index="4" groupId="_BASIC"  />
+                        <smartFilterBar:ControlConfiguration   key="UserTag" label="{i18n>xtit.UserTag}" index="5" groupId="_BASIC"  />
+                         <smartFilterBar:ControlConfiguration   key="Tcode" label="{i18n>xtit.Tcode}" index="6" groupId="_BASIC"  />
+                          <smartFilterBar:ControlConfiguration   key="Blart" label="{i18n>xtit.Blart}" index="6" groupId="_BASIC"  />
+                    </smartFilterBar:controlConfiguration>
+                     </smartFilterBar:SmartFilterBar>
                     <smartTable:SmartTable
                         id="idMappingSmartTable"
                         
