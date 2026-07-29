@@ -24,8 +24,10 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             this._onOpenApp(sUrl);
         },
         _onOpenApp:function(sUrl){
-            var sPathname = window.location.pathname + window.location.search + sUrl;
-            window.open(sPathname,"_blank");
+            console.log(window.location.pathname,window.location.search)
+            //var sPathName = window.location.pathname + window.location.search + sUrl;
+            var sPathName = "/sap/bc/ui2/flp"+sUrl
+            window.open(sPathName,"_blank");
         },
         onPressMultiApproval:function(oEvent){
             var oTable = this._oView.byId("idMappingTable"),
