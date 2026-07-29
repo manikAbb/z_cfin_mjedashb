@@ -19,7 +19,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
         },
         onPressDocNo:function(oEvent){
             var oBj = oEvent.getSource().getBindingContext().getObject(),
-            sUrl= "#AccountingDocument-manage?"+"CompanyCode="+oBj.Bukrs;
+            sUrl= "#AccountingDocument-manage?"+"CompanyCode="+oBj.Bukrs+"&FiscalYear="+oBj.Gjahr+"&AccountingDocument="+oBj.Belnr;
             console.log(sUrl)
             this._onOpenApp(sUrl);
         },
