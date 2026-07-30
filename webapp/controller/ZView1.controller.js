@@ -16,6 +16,27 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             this._oView = this.getView();
             this._oDataModel = this._oComponent.getModel();
             this._oResrcBundle = this._oComponent.getModel('i18n').getResourceBundle();
+            this._oRouter.getRoute("RouteZView1").attachPatternMatched(this._onRouteMatched, this);
+        },
+        _onRouteMatched:function(){
+             this._GetIcnTbBarCount();
+        },
+        _GetIcnTbBarCount:function(){
+            BusyIndicator.show(0);
+            this._oDataModel.read("/MJE_COUNTSet", {
+                success: function(oData, oResponse){
+                    if(oData.results.length > 0){
+                        this._oMainModel.setProperty("/aCountReq", oData.results[0].OpenCount);
+                        this._oMainModel.setProperty("/aCountApprovedReq", oData.results[0].AprCount);
+                        this._oMainModel.setProperty("/aCountRejectReq", oData.results[0].RejCount);
+                    }
+                    BusyIndicator.hide();
+                }.bind(this),
+                error: function(oError){            
+                    MessageBox.error(oError.message);
+                    BusyIndicator.hide();
+                }
+            });
         },
         onPressDocNo:function(oEvent){
             var oBj = oEvent.getSource().getBindingContext().getObject(),
@@ -77,6 +98,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 success: function(oData, oResponse){
                     this._oDialogAddComments.close();
                     MessageToast.show(this._oResourceBundle.getText("xmsg.Message3"));
+                    this._GetIcnTbBarCount();
                     this._refreshTable()
                     BusyIndicator.hide();
                 }.bind(this),

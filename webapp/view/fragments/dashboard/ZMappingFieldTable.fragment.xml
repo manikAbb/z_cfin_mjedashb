@@ -34,7 +34,7 @@
                         enableAutoBinding="true"
                         persistencyKey="badDebtTablePersKey"
                         ignoreFromPersonalisation=""
-                        requestAtLeastFields=""
+                        requestAtLeastFields="RiskLevelDesc"
                     >
                         <smartTable:customToolbar>
                             <Toolbar design="Transparent" >
@@ -154,7 +154,7 @@
                                          <Text text="{Gjahr}" />
                                         </cells>
                                         <cells>
-                                             <Text text="{RiskLevel}"/>
+                                             <Text text="{RiskLevel} {RiskLevelDesc}"/>
                                         </cells>
                                        
                                         <cells>
