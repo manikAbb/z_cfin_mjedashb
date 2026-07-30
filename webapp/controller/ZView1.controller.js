@@ -15,7 +15,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             this._oMainModel = this._oComponent.getModel("oMainModel");
             this._oView = this.getView();
             this._oDataModel = this._oComponent.getModel();
-            this._oResrcBundle = this._oComponent.getModel('i18n').getResourceBundle();
+            this._oResourceBundle = this._oComponent.getModel('i18n').getResourceBundle();
             this._oRouter.getRoute("RouteZView1").attachPatternMatched(this._onRouteMatched, this);
         },
         _onRouteMatched:function(){
@@ -50,7 +50,40 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             var sPathName = "/sap/bc/ui2/flp"+sUrl
             window.open(sPathName,"_blank");
         },
+        onPressEdit:function(){
+            var bProperty =  this._oMainModel.getProperty("/bEditable");
+            this._oMainModel.setProperty("/bEditable",!bProperty);
+        },
         onPressMultiApproval:function(oEvent){
+            var oTable = this._oView.byId("idMappingTable"),
+                oSelectedItems = oTable.getSelectedItems();
+            if(oSelectedItems.length > 0){  
+                MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message5"), {
+                    onClose: function(oAction) {
+                        if (oAction === MessageBox.Action.OK) {
+                            this._sendMultipleRequestForApproval(oSelectedItem,"APPROVED");
+                        }
+                    }.bind(this)
+                 });
+            }else{
+                MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
+            }
+            
+        },
+         onPressMultiApproval2:function(oEvent){
+            var oTable = this._oView.byId("idMappingTable"),
+                oSelectedItems = oTable.getSelectedItems();
+            if(oSelectedItems.length > 0){  
+                this._OpenCommentsBox().then(function(){
+                    this._sendMultipleRequestForApproval(oSelectedItems,"APPROVED");
+                }.bind(this)).catch(function(){
+                    console.log("press cancel");
+                })
+            }else{
+                MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
+            }
+        },
+        onPressMultiApproval2:function(oEvent){
             var oTable = this._oView.byId("idMappingTable"),
                 oSelectedItems = oTable.getSelectedItems();
             if(oSelectedItems.length > 0){  
@@ -158,6 +191,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
         _refreshTable:function(){
             this._oView.byId("idMappingSmartTable").rebindTable();
             this._oView.byId("idMappingTable").removeSelections(true);
+            this._oMainModel.setProperty("/bEditable",false);
         }
 
 

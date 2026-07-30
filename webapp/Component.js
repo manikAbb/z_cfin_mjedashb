@@ -33,7 +33,8 @@ sap.ui.define([
                     aCountRejectReq:"0",
                     oDialogComments:{
                         sDescription:""
-                    }
+                    },
+                    bEditable:false
                 });
                 this.setModel(oViewModel, "oMainModel");
                 // set the device model
