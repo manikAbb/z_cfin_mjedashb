@@ -123,7 +123,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "Monat":oSelectedObj.Monat,
                     //"ReviewStatus": sStatus,
                     "Approver":sStatus,
-                    "ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
+                    //"ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
                 }
                 aArray.push(oPayloadObj);
             }       
