@@ -132,9 +132,21 @@
                                 </Column>
                                  <Column width="100px">
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Reviewer", "columnIndex":"14",  "leadingProperty": "Reviewer", "sortProperty": "Reviewer", "filterProperty": "Reviewer"}' />
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "ReviewDate", "columnIndex":"14",  "leadingProperty": "ReviewDate", "sortProperty": "ReviewDate", "filterProperty": "ReviewDate"}' />
                                     </customData>
-                                    <Text text="{i18n>xtit.Reviewer}"/>
+                                    <Text text="{i18n>xtit.Date}"/>
+                                </Column>
+                                 <Column width="100px">
+                                    <customData>
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "ReviewNotes", "columnIndex":"15",  "leadingProperty": "ReviewNotes", "sortProperty": "ReviewNotes", "filterProperty": "ReviewNotes"}' />
+                                    </customData>
+                                    <Text text="{i18n>xtit.Comments}"/>
+                                </Column>
+                                 <Column width="100px">
+                                    <customData>
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "ReviewStatus", "columnIndex":"16",  "leadingProperty": "ReviewStatus", "sortProperty": "ReviewStatus", "filterProperty": "ReviewStatus"}' />
+                                    </customData>
+                                    <Text text="{i18n>xtit.Status}"/>
                                 </Column>
                                 
                                 
@@ -154,7 +166,7 @@
                                          <Text text="{Gjahr}" />
                                         </cells>
                                         <cells>
-                                             <Text text="{RiskLevel} {RiskLevelDesc}"/>
+                                             <Text text="{RiskLevel} - {RiskLevelDesc}"/>
                                         </cells>
                                        
                                         <cells>
@@ -183,13 +195,19 @@
                                              <Text text="{Rhcur}" />
                                         </cells>
                                         <cells>
-                                             <Text text="{ScopeFlag}  {ScopeDesc}" />
+                                             <Text text="{ScopeFlag} - {ScopeDesc}" />
                                         </cells>
                                         <cells>
                                              <Text text="{ScopeReason}"/>
                                         </cells>
                                         <cells>
-                                             <Text text="{Reviewer}" />
+                                             <Text text="{ReviewDate}" />
+                                        </cells>
+                                          <cells>
+                                             <Text text="{ReviewNotes}" />
+                                        </cells>
+                                          <cells>
+                                             <Text text="{ReviewStatus}" />
                                         </cells>
                                       
                                         
