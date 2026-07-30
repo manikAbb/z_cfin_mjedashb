@@ -34,7 +34,7 @@
                         enableAutoBinding="true"
                         persistencyKey="badDebtTablePersKey"
                         ignoreFromPersonalisation=""
-                        requestAtLeastFields="RiskLevelDesc"
+                        requestAtLeastFields="RiskLevelDesc,ScopeDesc"
                     >
                         <smartTable:customToolbar>
                             <Toolbar design="Transparent" >
@@ -183,7 +183,7 @@
                                              <Text text="{Rhcur}" />
                                         </cells>
                                         <cells>
-                                             <Text text="{ScopeFlag}" />
+                                             <Text text="{ScopeFlag}  {ScopeDesc}" />
                                         </cells>
                                         <cells>
                                              <Text text="{ScopeReason}"/>
