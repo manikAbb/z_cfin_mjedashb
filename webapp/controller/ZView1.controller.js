@@ -70,19 +70,6 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             }
             
         },
-         onPressMultiApproval2:function(oEvent){
-            var oTable = this._oView.byId("idMappingTable"),
-                oSelectedItems = oTable.getSelectedItems();
-            if(oSelectedItems.length > 0){  
-                this._OpenCommentsBox().then(function(){
-                    this._sendMultipleRequestForApproval(oSelectedItems,"APPROVED");
-                }.bind(this)).catch(function(){
-                    console.log("press cancel");
-                })
-            }else{
-                MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
-            }
-        },
         onPressMultiApproval2:function(oEvent){
             var oTable = this._oView.byId("idMappingTable"),
                 oSelectedItems = oTable.getSelectedItems();
@@ -100,6 +87,22 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             var oTable = this._oView.byId("idMappingTable"),
                 oSelectedItems = oTable.getSelectedItems();
             if(oSelectedItems.length > 0){  
+                MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message6"), {
+                    onClose: function(oAction) {
+                        if (oAction === MessageBox.Action.OK) {
+                            this._sendMultipleRequestForApproval(oSelectedItem,"REJECTED");
+                        }
+                    }.bind(this)
+                 });
+            }else{
+                MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
+            }
+            
+        },
+        onPressMultiReject2:function(oEvent){
+            var oTable = this._oView.byId("idMappingTable"),
+                oSelectedItems = oTable.getSelectedItems();
+            if(oSelectedItems.length > 0){  
                 this._OpenCommentsBox().then(function(){
                     this._sendMultipleRequestForApproval(oSelectedItems,"REJECTED");
                 }.bind(this)).catch(function(){
@@ -111,14 +114,15 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
         },
        _sendMultipleRequestForApproval:function(oSelectedItems, sStatus){ 
              BusyIndicator.show(0);  
-            var aArray = [],oPayloadObj={};
+            var aArray = [];
             for (var x in oSelectedItems) {
-                var oSelectedObj = oSelectedItems[x].getBindingContext().getObject();
+                var oSelectedObj = oSelectedItems[x].getBindingContext().getObject(),
                 oPayloadObj = {
                     "Bukrs":oSelectedObj.Bukrs,
                     "Gjahr":oSelectedObj.Gjahr,
                     "Monat":oSelectedObj.Monat,
-                    "ReviewStatus": sStatus,
+                    //"ReviewStatus": sStatus,
+                    "Approver":sStatus,
                     "ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
                 }
                 aArray.push(oPayloadObj);
