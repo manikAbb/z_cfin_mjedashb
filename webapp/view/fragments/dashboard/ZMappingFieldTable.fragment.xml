@@ -201,7 +201,7 @@
                                              <Text text="{ScopeReason}"/>
                                         </cells>
                                         <cells>
-                                             <Text text="{ReviewDate}" />
+                                             <Text text="{path:'ReviewDate',type:'sap.ui.model.odata.type.DateTime',formatOptions:{pattern:'dd/MM/YYYY'}}" wrapping="false"/>
                                         </cells>
                                           <cells>
                                              <Text text="{ReviewNotes}" />
