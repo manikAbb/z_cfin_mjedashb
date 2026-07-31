@@ -61,7 +61,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message5"), {
                     onClose: function(oAction) {
                         if (oAction === MessageBox.Action.OK) {
-                            this._sendMultipleRequestForApproval(oSelectedItem,"APPROVED");
+                            this._sendMultipleRequestForApproval(oSelectedItems,"APPROVED");
                         }
                     }.bind(this)
                  });
@@ -90,7 +90,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message6"), {
                     onClose: function(oAction) {
                         if (oAction === MessageBox.Action.OK) {
-                            this._sendMultipleRequestForApproval(oSelectedItem,"REJECTED");
+                            this._sendMultipleRequestForApproval(oSelectedItems,"REJECTED");
                         }
                     }.bind(this)
                  });
@@ -112,6 +112,14 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
             }
         },
+        _sendMultipleRequestForApproval2:function(oSelectedItems,sStatus){
+            for (var x in oSelectedItems){
+                var sPath = oSelectedItems[0].getBindingContext().getPath();
+                this._oDataModel.setProperty(sPath+"/Approver",sStatus);
+            }
+            this._oDataModel.submitChanges();
+        },
+
        _sendMultipleRequestForApproval:function(oSelectedItems, sStatus){ 
              BusyIndicator.show(0);  
             var aArray = [];
@@ -121,17 +129,21 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "Bukrs":oSelectedObj.Bukrs,
                     "Gjahr":oSelectedObj.Gjahr,
                     "Monat":oSelectedObj.Monat,
+                    "UserTag":oSelectedObj.UserTag,
+                    "RiskLevel":oSelectedObj.RiskLevel,
+                    "Tcode":oSelectedObj.Tcode,
                     //"ReviewStatus": sStatus,
                     "Approver":sStatus,
                     //"ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
+                    "ReviewNotes":oSelectedItems.ReviewNotes || ""
                 }
                 aArray.push(oPayloadObj);
             }       
             var oPayload = {
-                "SampleX":"X",
-                "Approved_Items": aArray
+                "Bukrs":"X",
+                "MJE_DETAILSSet": aArray
             };
-            this._oDataModel.create("/MJE_DETAILSSet", oPayload, {
+            this._oDataModel.create("/MJE_HEADERSet", oPayload, {
                 success: function(oData, oResponse){
                     this._oDialogAddComments.close();
                     MessageToast.show(this._oResourceBundle.getText("xmsg.Message3"));
