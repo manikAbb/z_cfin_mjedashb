@@ -133,7 +133,7 @@
                                     </customData>
                                     <Text text="{i18n>xtit.ReviewDate}"/>
                                 </Column>
-                                 <Column width="100px">
+                                 <Column width="200px">
                                     <customData>
                                         <core:CustomData key="p13nData" value='\{"columnKey": "ReviewNotes", "columnIndex":"15",  "leadingProperty": "ReviewNotes", "sortProperty": "ReviewNotes", "filterProperty": "ReviewNotes"}' />
                                     </customData>

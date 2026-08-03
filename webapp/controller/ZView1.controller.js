@@ -129,19 +129,21 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "Bukrs":oSelectedObj.Bukrs,
                     "Gjahr":oSelectedObj.Gjahr,
                     "Monat":oSelectedObj.Monat,
-                    "UserTag":oSelectedObj.UserTag,
-                    "RiskLevel":oSelectedObj.RiskLevel,
-                    "Tcode":oSelectedObj.Tcode,
+                    "UserTag":oSelectedObj.UserTag,//c
+                    "RiskLevel":oSelectedObj.RiskLevel,//c
+                    "Tcode":oSelectedObj.Tcode, //c,
+                    "Blart":oSelectedObj.Blart,
                     //"ReviewStatus": sStatus,
                     "Approver":sStatus,
                     //"ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
-                    "ReviewNotes":oSelectedItems.ReviewNotes || ""
+                    "ReviewNotes":oSelectedItems.ReviewNotes || "",
+                    "ReviewDate":new Date()
                 }
                 aArray.push(oPayloadObj);
             }       
             var oPayload = {
-                "Bukrs":"X",
-                "MJE_DETAILSSet": aArray
+                "Approver":"X",
+                "Approved_Items": aArray
             };
             this._oDataModel.create("/MJE_HEADERSet", oPayload, {
                 success: function(oData, oResponse){
