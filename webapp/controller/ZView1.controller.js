@@ -135,12 +135,17 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "Tcode":oSelectedObj.Tcode, 
                     "Blart":oSelectedObj.Blart,
                     "ReviewStatus": sStatus,
-                    "Raact":oSelectedObj.Raact,
+                    "Racct":oSelectedObj.Racct,
+                    "Bldat":oSelectedObj.Bldat,
+                    "Budat":oSelectedObj.Budat,
+                    "Usnam":oSelectedObj.Usnam,
                     //"Approver":sStatus,
                     //"ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
-                    "ReviewNotes":oSelectedItems.ReviewNotes || "",
-                    "ReviewDate":new Date()
+                    "ReviewNotes":oSelectedItems.ReviewNotes ,
+                    "ReviewDate":new Date(),
+                    
                 }
+                console.log(oSelectedObj)
                 aArray.push(oPayloadObj);
             }       
             var oPayload = {
@@ -149,14 +154,14 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             };
             this._oDataModel.create("/MJE_HEADERSet", oPayload, {
                 success: function(oData, oResponse){
-                    this._oDialogAddComments.close();
+                    //this._oDialogAddComments.close();
                     MessageToast.show(this._oResourceBundle.getText("xmsg.Message3"));
                     this._GetIcnTbBarCount();
                     this._refreshTable()
                     BusyIndicator.hide();
                 }.bind(this),
                 error: function(oError){
-                    this._oDialogAddComments.close();
+                    //this._oDialogAddComments.close();
                     MessageBox.error(oError.message);
                     BusyIndicator.hide();
                 }.bind(this),

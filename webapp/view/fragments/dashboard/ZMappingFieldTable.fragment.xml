@@ -30,14 +30,14 @@
                         enableAutoBinding="true"
                         persistencyKey="badDebtTablePersKey"
                         ignoreFromPersonalisation=""
-                        requestAtLeastFields="RiskLevelDesc,ScopeDesc,BlartDesc,Raact"
+                        requestAtLeastFields="RiskLevelDesc,ScopeDesc,BlartDesc,Racct,Bldat,Budat,Usnam"
                     >
                         <smartTable:customToolbar>
                             <Toolbar design="Transparent" >
                                 <ToolbarSpacer />
                                 <Button icon="sap-icon://validate" tooltip="{i18n>xbut.Approve}" text="{i18n>xbut.Approve}" type="Emphasized" press="onPressMultiApproval" enabled="true" />
                                 <Button icon="sap-icon://cancel" tooltip="{i18n>xbut.Reject}" text="{i18n>xbut.Reject}" type="Emphasized" press="onPressMultiReject" enabled="true" />
-                                <Button icon="sap-icon://edit" press="onPressEdit" />
+                                <Button icon="sap-icon://edit" press="onPressEdit" visible="false" />
                             </Toolbar>
                         </smartTable:customToolbar>
                         <Table id="idMappingTable" fixedLayout="Strict"   class="sapUiTinyMarginTop" mode="MultiSelect" selectionChange="onItemSelect" growing="true" growingScrollToLoad="true" updateFinished="onTableCheckBoxEnable" sticky="ColumnHeaders,HeaderToolbar" >
@@ -202,8 +202,8 @@
                                         </cells>
                                           <cells>
                                              <HBox>
-                                                <Text text="{ReviewNotes}" visible="{= ${oMainModel>/bEditable} === false ? true : false }"/> 
-                                                <Input value="{ReviewNotes}"  visible="{oMainModel>/bEditable}" /></HBox>
+                                                <!--<Text text="{ReviewNotes}" visible="{= ${oMainModel>/bEditable} === false ? true : false }"/> -->
+                                                <Input value="{ReviewNotes}"  /></HBox>
                                         </cells>
                                           <cells>
                                              <Text text="{ReviewStatus}" />
