@@ -25,9 +25,9 @@
                         count="{oMainModel>/aCountReq}"
                     >
                         <content>
-                            <VBox class="sapUiSmallMargin">
+                           
                                  <core:Fragment fragmentName="com.cfin.zcfinmjedashapr.view.fragments.dashboard.ZMappingFieldTable" type="XML"/>		
-                            </VBox>
+                           
                         </content>
                     </IconTabFilter>
 

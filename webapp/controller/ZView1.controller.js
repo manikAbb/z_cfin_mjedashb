@@ -128,13 +128,14 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 oPayloadObj = {
                     "Bukrs":oSelectedObj.Bukrs,
                     "Gjahr":oSelectedObj.Gjahr,
+                    "Belnr": oSelectedObj.Belnr,
                     "Monat":oSelectedObj.Monat,
                     "UserTag":oSelectedObj.UserTag,//c
                     "RiskLevel":oSelectedObj.RiskLevel,//c
                     "Tcode":oSelectedObj.Tcode, //c,
                     "Blart":oSelectedObj.Blart,
-                    //"ReviewStatus": sStatus,
-                    "Approver":sStatus,
+                    "ReviewStatus": sStatus,
+                    //"Approver":sStatus,
                     //"ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
                     "ReviewNotes":oSelectedItems.ReviewNotes || "",
                     "ReviewDate":new Date()
