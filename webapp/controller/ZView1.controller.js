@@ -130,11 +130,12 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "Gjahr":oSelectedObj.Gjahr,
                     "Belnr": oSelectedObj.Belnr,
                     "Monat":oSelectedObj.Monat,
-                    "UserTag":oSelectedObj.UserTag,//c
-                    "RiskLevel":oSelectedObj.RiskLevel,//c
-                    "Tcode":oSelectedObj.Tcode, //c,
+                    "UserTag":oSelectedObj.UserTag,
+                    "RiskLevel":oSelectedObj.RiskLevel,
+                    "Tcode":oSelectedObj.Tcode, 
                     "Blart":oSelectedObj.Blart,
                     "ReviewStatus": sStatus,
+                    "Raact":oSelectedObj.Raact,
                     //"Approver":sStatus,
                     //"ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
                     "ReviewNotes":oSelectedItems.ReviewNotes || "",

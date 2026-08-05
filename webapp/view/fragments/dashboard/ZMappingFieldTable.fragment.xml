@@ -30,7 +30,7 @@
                         enableAutoBinding="true"
                         persistencyKey="badDebtTablePersKey"
                         ignoreFromPersonalisation=""
-                        requestAtLeastFields="RiskLevelDesc,ScopeDesc,BlartDesc"
+                        requestAtLeastFields="RiskLevelDesc,ScopeDesc,BlartDesc,Raact"
                     >
                         <smartTable:customToolbar>
                             <Toolbar design="Transparent" >
