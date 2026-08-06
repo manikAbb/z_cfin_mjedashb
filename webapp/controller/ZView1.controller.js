@@ -141,7 +141,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "Usnam":oSelectedObj.Usnam,
                     //"Approver":sStatus,
                     //"ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
-                    "ReviewNotes":oSelectedItems.ReviewNotes ,
+                    "ReviewNotes":oSelectedItems.ReviewNotes,
                     "ReviewDate":new Date(),
                     
                 }
