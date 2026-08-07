@@ -149,7 +149,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 aArray.push(oPayloadObj);
             }       
             var oPayload = {
-                "Approver":"X",
+                "Approver":sStatus === "APPROVED" ? "A" : "R",
                 "Approved_Items": aArray
             };
             this._oDataModel.create("/MJE_HEADERSet", oPayload, {
@@ -162,6 +162,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 }.bind(this),
                 error: function(oError){
                     //this._oDialogAddComments.close();
+                    
                     MessageBox.error(oError.message);
                     BusyIndicator.hide();
                 }.bind(this),
