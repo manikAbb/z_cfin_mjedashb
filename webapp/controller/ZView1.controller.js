@@ -150,19 +150,19 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             }       
             var oPayload = {
                 "Approver":sStatus === "APPROVED" ? "A" : "R",
+                "Message":"",
                 "Approved_Items": aArray
             };
             this._oDataModel.create("/MJE_HEADERSet", oPayload, {
                 success: function(oData, oResponse){
                     //this._oDialogAddComments.close();
-                    MessageToast.show(this._oResourceBundle.getText("xmsg.Message3"));
+                    MessageBox.information(oData.Message);
                     this._GetIcnTbBarCount();
                     this._refreshTable()
                     BusyIndicator.hide();
                 }.bind(this),
                 error: function(oError){
                     //this._oDialogAddComments.close();
-                    
                     MessageBox.error(oError.message);
                     BusyIndicator.hide();
                 }.bind(this),
