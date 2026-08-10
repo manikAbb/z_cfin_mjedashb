@@ -7,8 +7,9 @@ sap.ui.define([
         "sap/ui/Device",
         "com/cfin/zcfinmjedashapr/model/models",
         "sap/ui/model/json/JSONModel",
+        "./controller/ZErrorHanlder"
     ],
-    function (UIComponent, Device, models,JSONModel) {
+    function (UIComponent, Device, models,JSONModel,ZErrorHanlder) {
         "use strict";
 
         return UIComponent.extend("com.cfin.zcfinmjedashapr.Component", {
@@ -39,6 +40,7 @@ sap.ui.define([
                 this.setModel(oViewModel, "oMainModel");
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+                this._ErrorHanlder = new ZErrorHanlder(this);
             }
         });
     }
