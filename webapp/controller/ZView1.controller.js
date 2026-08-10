@@ -41,11 +41,11 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
         onPressDocNo:function(oEvent){
             var oBj = oEvent.getSource().getBindingContext().getObject(),
             sUrl= "#AccountingDocument-manage?"+"CompanyCode="+oBj.Bukrs+"&FiscalYear="+oBj.Gjahr+"&AccountingDocument="+oBj.Belnr;
-            console.log(sUrl)
+            
             this._onOpenApp(sUrl);
         },
         _onOpenApp:function(sUrl){
-            console.log(window.location.pathname,window.location.search)
+            
             //var sPathName = window.location.pathname + window.location.search + sUrl;
             var sPathName = "/sap/bc/ui2/flp"+sUrl
             window.open(sPathName,"_blank");
@@ -96,7 +96,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 this._OpenCommentsBox().then(function(){
                     this._sendMultipleRequestForApproval(oSelectedItems,"REJECTED");
                 }.bind(this)).catch(function(){
-                    console.log("press cancel");
+                    
                 })
             }else{
                 MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
@@ -135,7 +135,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "ReviewDate":new Date(),
                     
                 }
-                console.log(oSelectedObj)
+                //console.log(oSelectedObj)
                 aArray.push(oPayloadObj);
             }       
             var oPayload = {
@@ -143,6 +143,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 "Message":"",
                 "Approved_Items": aArray
             };
+            console.log(oPayload)
             this._oDataModel.create("/MJE_HEADERSet", oPayload, {
                 success: function(oData, oResponse){
                     //this._oDialogAddComments.close();
