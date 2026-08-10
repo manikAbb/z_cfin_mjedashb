@@ -55,8 +55,9 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             this._oMainModel.setProperty("/bEditable",!bProperty);
         },
         onPressMultiApproval:function(oEvent){
-            var oTable = this._oView.byId("idMappingTable"),
-                oSelectedItems = oTable.getSelectedItems();
+            var oTable = this._oView.byId("idMappingTable");
+               const aIndices = oTable.getSelectedIndices(); //
+                const oSelectedItems = aIndices.map(iIndex => oTable.getContextByIndex(iIndex).getObject()); 
             if(oSelectedItems.length > 0){  
                 MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message5"), {
                     onClose: function(oAction) {
@@ -70,22 +71,11 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             }
             
         },
-        onPressMultiApproval2:function(oEvent){
-            var oTable = this._oView.byId("idMappingTable"),
-                oSelectedItems = oTable.getSelectedItems();
-            if(oSelectedItems.length > 0){  
-                this._OpenCommentsBox().then(function(){
-                    this._sendMultipleRequestForApproval(oSelectedItems,"APPROVED");
-                }.bind(this)).catch(function(){
-                    console.log("press cancel");
-                })
-            }else{
-                MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
-            }
-        },
+       
         onPressMultiReject:function(oEvent){
-            var oTable = this._oView.byId("idMappingTable"),
-                oSelectedItems = oTable.getSelectedItems();
+            var oTable = this._oView.byId("idMappingTable");
+                const aIndices = oTable.getSelectedIndices(); //
+                const oSelectedItems = aIndices.map(iIndex => oTable.getContextByIndex(iIndex).getObject()); 
             if(oSelectedItems.length > 0){  
                 MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message6"), {
                     onClose: function(oAction) {
@@ -124,7 +114,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
              BusyIndicator.show(0);  
             var aArray = [];
             for (var x in oSelectedItems) {
-                var oSelectedObj = oSelectedItems[x].getBindingContext().getObject(),
+                var oSelectedObj = oSelectedItems[x],
                 oPayloadObj = {
                     "Bukrs":oSelectedObj.Bukrs,
                     "Gjahr":oSelectedObj.Gjahr,
