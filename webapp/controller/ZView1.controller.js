@@ -140,14 +140,14 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             }       
             var oPayload = {
                 "Approver":sStatus === "APPROVED" ? "A" : "R",
-                "Message":"",
+                //"Message":"",
                 "Approved_Items": aArray
             };
             console.log(oPayload)
             this._oDataModel.create("/MJE_HEADERSet", oPayload, {
                 success: function(oData, oResponse){
                     //this._oDialogAddComments.close();
-                    MessageBox.information(oData.Message);
+                    MessageBox.success(this._oResourceBundle.getText("xmsg.Message10",[oData.Approver==="A" ? 'Approved':'Rejected']));
                     this._GetIcnTbBarCount();
                     this._refreshTable()
                     BusyIndicator.hide();
