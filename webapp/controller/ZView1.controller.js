@@ -58,7 +58,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             var oTable = this._oView.byId("idMappingTable");
                const aIndices = oTable.getSelectedIndices(); //
                 const oSelectedItems = aIndices.map(iIndex => oTable.getContextByIndex(iIndex).getObject()); 
-            if(oSelectedItems.length > 0){  
+            if(this._CheckSaveValidations(oSelectedItems,"APPROVED")){  
                 MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message5"), {
                     onClose: function(oAction) {
                         if (oAction === MessageBox.Action.OK) {
@@ -66,17 +66,31 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                         }
                     }.bind(this)
                  });
-            }else{
-                MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
             }
             
         },
-       
+        //ReviewNotes
+        _CheckSaveValidations: function(oSelectedItems,mFlagStatus){
+            // 1. First validation
+            if(oSelectedItems.length <= 0){
+                MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
+                return false;
+            }
+
+            // 2. Second Validation For the Coments
+            for (var x in oSelectedItems) {
+                if(!oSelectedItems[x].ReviewNotes){
+                    MessageBox.error(this._oResourceBundle.getText("xmsg.Message11",[mFlagStatus==="APPROVED"?'Approved':'Rejected']));
+                    return false;
+                }
+            }
+                
+        },
         onPressMultiReject:function(oEvent){
             var oTable = this._oView.byId("idMappingTable");
                 const aIndices = oTable.getSelectedIndices(); //
                 const oSelectedItems = aIndices.map(iIndex => oTable.getContextByIndex(iIndex).getObject()); 
-            if(oSelectedItems.length > 0){  
+            if(this._CheckSaveValidations(oSelectedItems,"REJECTED")){  
                 MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message6"), {
                     onClose: function(oAction) {
                         if (oAction === MessageBox.Action.OK) {
@@ -84,8 +98,6 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                         }
                     }.bind(this)
                  });
-            }else{
-                MessageBox.error(this._oResourceBundle.getText("xmsg.Message1"));
             }
             
         },
