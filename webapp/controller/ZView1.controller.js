@@ -84,6 +84,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     return false;
                 }
             }
+            return true;
                 
         },
         onPressMultiReject:function(oEvent){
