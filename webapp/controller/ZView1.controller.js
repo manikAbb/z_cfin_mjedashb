@@ -138,7 +138,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "Tcode":oSelectedObj.Tcode, 
                     "Blart":oSelectedObj.Blart,
                     "ReviewStatus": sStatus,
-                    "Racct":oSelectedObj.Racct,
+                    //"Racct":oSelectedObj.Racct,
                     "Bldat":oSelectedObj.Bldat,
                     "Budat":oSelectedObj.Budat,
                     "Usnam":oSelectedObj.Usnam,
