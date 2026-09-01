@@ -14,14 +14,14 @@ builder:
       afterTask: generateCachebusterInfo
       configuration:
         target:
-          destination: CF6_100_Manik
-          url: http://gl-cf6-100-d.abb.com:443
+          destination: CF2_100_Manik
+          url: http://gl-cf2-aem-d.abb.com:443
           client: '100'
         app:
           name: ZCFINMJEDASHAPR
           description: MJE Approval Dashboard
           package: ZCFIN_FIORI
-          transport: CF6K934600
+          transport: CF2K960214
         exclude:
           - /test/
           - /localService/
