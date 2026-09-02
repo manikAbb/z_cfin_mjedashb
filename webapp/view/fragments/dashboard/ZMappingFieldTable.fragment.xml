@@ -90,7 +90,7 @@
                                         <Text  text="{UserTag}" wrapping="false"/>
                                     </ui:template>
                                  </ui:Column>
-                                 <ui:Column width="80px"  autoResizable="true"  filterProperty="Tcode" sortProperty="Tcode" showFilterMenuEntry="true">
+                                 <ui:Column width="90px"  autoResizable="true"  filterProperty="Tcode" sortProperty="Tcode" showFilterMenuEntry="true">
                                     <ui:customData>
                                         <core:CustomData key="p13nData" value='\{"columnKey": "Tcode", "columnIndex": "5", "filterProperty": "Tcode", "sortProperty": "Tcode", "leadingProperty": "Tcode"}' />
                                     </ui:customData>
@@ -100,7 +100,7 @@
                                     </ui:template>
                                  </ui:Column>
                               
-                              <ui:Column width="80px"  autoResizable="true"  filterProperty="Blart" sortProperty="Blart" showFilterMenuEntry="true">
+                              <ui:Column width="90px"  autoResizable="true"  filterProperty="Blart" sortProperty="Blart" showFilterMenuEntry="true">
                                     <ui:customData>
                                         <core:CustomData key="p13nData" value='\{"columnKey": "Blart", "columnIndex": "6", "filterProperty": "Blart", "sortProperty": "Blart", "leadingProperty": "Blart"}' />
                                     </ui:customData>
@@ -109,7 +109,7 @@
                                         <Text  text="{Blart}" wrapping="false"/>
                                     </ui:template>
                                  </ui:Column>
-                                <ui:Column width="80px"  autoResizable="true"  filterProperty="Belnr" sortProperty="Belnr" showFilterMenuEntry="true">
+                                <ui:Column width="90px"  autoResizable="true"  filterProperty="Belnr" sortProperty="Belnr" showFilterMenuEntry="true">
                                     <ui:customData>
                                         <core:CustomData key="p13nData" value='\{"columnKey": "Belnr", "columnIndex": "7", "filterProperty": "Belnr", "sortProperty": "Belnr", "leadingProperty": "Belnr"}' />
                                     </ui:customData>
@@ -119,7 +119,7 @@
                                     </ui:template>
                                  </ui:Column>
 
-                                  <ui:Column width="80px"  autoResizable="true"  filterProperty="Ksl" sortProperty="Ksl" showFilterMenuEntry="true">
+                                  <ui:Column width="90px"  autoResizable="true"  filterProperty="Ksl" sortProperty="Ksl" showFilterMenuEntry="true">
                                     <ui:customData>
                                         <core:CustomData key="p13nData" value='\{"columnKey": "Ksl", "columnIndex": "8", "filterProperty": "Ksl", "sortProperty": "Ksl", "leadingProperty": "Ksl"}' />
                                     </ui:customData>
@@ -129,7 +129,7 @@
                                     </ui:template>
                                  </ui:Column>
 
-                                     <ui:Column width="80px"  autoResizable="true"  filterProperty="Rkcur" sortProperty="Rkcur" showFilterMenuEntry="true">
+                                     <ui:Column width="90px"  autoResizable="true"  filterProperty="Rkcur" sortProperty="Rkcur" showFilterMenuEntry="true">
                                     <ui:customData>
                                         <core:CustomData key="p13nData" value='\{"columnKey": "Rkcur", "columnIndex": "9", "filterProperty": "Rkcur", "sortProperty": "Rkcur", "leadingProperty": "Rkcur"}' />
                                     </ui:customData>
