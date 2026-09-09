@@ -78,12 +78,15 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             }
 
             // 2. Second Validation For the Coments
-            for (var x in oSelectedItems) {
-                if(!oSelectedItems[x].ReviewNotes){
-                    MessageBox.error(this._oResourceBundle.getText("xmsg.Message11",[mFlagStatus==="APPROVED"?'Approved':'Rejected']));
-                    return false;
+            if(mFlagStatus==="REJECTED"){
+                for (var x in oSelectedItems) {
+                    if(!oSelectedItems[x].ReviewNotes){
+                        MessageBox.error(this._oResourceBundle.getText("xmsg.Message11",[mFlagStatus==="APPROVED"?'Approve':'Rejection']));
+                        return false;
+                    }
                 }
             }
+            
             return true;
                 
         },
@@ -144,7 +147,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "Usnam":oSelectedObj.Usnam,
                     //"Approver":sStatus,
                     //"ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
-                    "ReviewNotes":oSelectedItems.ReviewNotes,
+                    "ReviewNotes":oSelectedObj.ReviewNotes,
                     "ReviewDate":new Date(),
                     
                 }
