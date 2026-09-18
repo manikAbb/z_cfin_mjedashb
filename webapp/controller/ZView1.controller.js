@@ -302,7 +302,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     text2:"Closed"
                 },
                 REVERSED: {
-                    code: "R",
+                    code: "V",
                     text: "Reversed",
                     text2:"Reversed"
                 }
