@@ -86,11 +86,13 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             this._oMainModel.setProperty("/bEditable",!bProperty);
         },
         oPressOpen:function(oEvent,mActionType){
-            var oTable = this._oView.byId("idMappingTable");
-               const aIndices = oTable.getSelectedIndices(); //
-                const oSelectedItems = aIndices.map(iIndex => oTable.getContextByIndex(iIndex).getObject()); 
+            var oTable = this._oView.byId("idMappingTable"),
+            mStatusMap=this._getStatusValues(mActionType);
+            const aIndices = oTable.getSelectedIndices(); //
+            const oSelectedItems = aIndices.map(iIndex => oTable.getContextByIndex(iIndex).getObject()); 
+
             if(this._CheckSaveValidations(oSelectedItems,mActionType)){  
-                MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message12",[mActionType]), {
+                MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message12",[mStatusMap.text]), {
                     onClose: function(oAction) {
                         if (oAction === MessageBox.Action.OK) {
                             this._sendMultipleRequestForApproval(oSelectedItems,mActionType);
@@ -203,15 +205,9 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 //console.log(oSelectedObj)
                 aArray.push(oPayloadObj);
             }
-            const statusMap = {
-                APPROVED: "A",
-                REJECTED: "R",
-                OPEN: "O",
-                CLOSE: "C",
-                REVERSED:"R"
-            };
+            const statusMap = this._getStatusValues(sStatus)
             var oPayload = {
-                "Approver":statusMap[sStatus],
+                "Approver":statusMap.code,
                 //"Message":"",
                 "Approved_Items": aArray
             };
@@ -219,7 +215,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             this._oDataModel.create("/MJE_HEADERSet", oPayload, {
                 success: function(oData, oResponse){
                     //this._oDialogAddComments.close();
-                    MessageBox.success(this._oResourceBundle.getText("xmsg.Message10",[oData.Approver==="A" ? 'Approved':'Rejected']));
+                    MessageBox.success(this._oResourceBundle.getText("xmsg.Message10",[statusMap.text2]));
                     this._GetIcnTbBarCount();
                     this._refreshTable()
                     BusyIndicator.hide();
@@ -281,8 +277,42 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             this._oView.byId("idMappingSmartTable").rebindTable();
             this._oView.byId("idMappingTable").removeSelections(true);
             this._oMainModel.setProperty("/bEditable",false);
-        }
+        },
+        //getStatusDetails(sStatus).code,
+        _getStatusValues:function (status) {
+            const statusMap = {
+                APPROVED: {
+                    code: "A",
+                    text: "Approve",
+                    text2:"Approved"
+                },
+                REJECTED: {
+                    code: "R",
+                    text: "Rejection",
+                    text2:"Rejected"
+                },
+                OPEN: {
+                    code: "O",
+                    text: "Open",
+                    text2:"Open"
+                },
+                CLOSE: {
+                    code: "C",
+                    text: "Close",
+                    text2:"Closed"
+                },
+                REVERSED: {
+                    code: "C",
+                    text: "Close",
+                    text2:"Reversed"
+                }
+            };
 
+            return statusMap[status] || {
+                code: "",
+                text: ""
+            };
+        }
 
     });
 });
