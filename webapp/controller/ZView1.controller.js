@@ -19,24 +19,55 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
             this._oRouter.getRoute("RouteZView1").attachPatternMatched(this._onRouteMatched, this);
         },
         _onRouteMatched:function(){
-             this._GetIcnTbBarCount();
+            BusyIndicator.show(0);
+             this._GetIcnTbBarCount().then(function(){
+                return this._CheckSupuerUser()
+             }.bind(this)).then(function(){
+                BusyIndicator.hide(0);
+             }).catch(function(){
+                 BusyIndicator.hide(0);
+             });
+            
         },
         _GetIcnTbBarCount:function(){
-            BusyIndicator.show(0);
-            this._oDataModel.read("/MJE_COUNTSet", {
-                success: function(oData, oResponse){
-                    if(oData.results.length > 0){
-                        this._oMainModel.setProperty("/aCountReq", oData.results[0].OpenCount);
-                        this._oMainModel.setProperty("/aCountApprovedReq", oData.results[0].AprCount);
-                        this._oMainModel.setProperty("/aCountRejectReq", oData.results[0].RejCount);
+            return new Promise(function(resolve,reject){
+                this._oDataModel.read("/MJE_COUNTSet", {
+                    success: function(oData, oResponse){
+                        if(oData.results.length > 0){
+                            this._oMainModel.setProperty("/aCountReq", oData.results[0].OpenCount);
+                            this._oMainModel.setProperty("/aCountApprovedReq", oData.results[0].AprCount);
+                            this._oMainModel.setProperty("/aCountRejectReq", oData.results[0].RejCount);
+                        }
+                        resolve()
+                    }.bind(this),
+                    error: function(oError){            
+                        MessageBox.error(oError.message);
+                        BusyIndicator.hide();
+                        reject()
                     }
-                    BusyIndicator.hide();
-                }.bind(this),
-                error: function(oError){            
-                    MessageBox.error(oError.message);
-                    BusyIndicator.hide();
-                }
-            });
+                });
+            }.bind(this));
+            
+        },
+         _CheckSupuerUser:function(){
+            return new Promise(function(resolve,reject){
+                this._oDataModel.read("/MJE_SUP_USERSet", {
+                    success: function(oData, oResponse){
+                        if(oData.results.length>0){
+                            this._oMainModel.setProperty("/bSuperUserBtnsVisbile",true)
+                        }else{
+                            this._oMainModel.setProperty("/bSuperUserBtnsVisbile",false)
+                        }
+                        resolve()
+                    }.bind(this),
+                    error: function(oError){            
+                        MessageBox.error(oError.message);
+                        BusyIndicator.hide();
+                        reject()
+                    }
+                });
+            }.bind(this));
+            
         },
         onPressDocNo:function(oEvent){
             var oBj = oEvent.getSource().getBindingContext().getObject(),
@@ -53,6 +84,23 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
         onPressEdit:function(){
             var bProperty =  this._oMainModel.getProperty("/bEditable");
             this._oMainModel.setProperty("/bEditable",!bProperty);
+        },
+        oPressOpen:function(oEvent,mActionType){
+            var oTable = this._oView.byId("idMappingTable");
+               const aIndices = oTable.getSelectedIndices(); //
+                const oSelectedItems = aIndices.map(iIndex => oTable.getContextByIndex(iIndex).getObject()); 
+            if(this._CheckSaveValidations(oSelectedItems,mActionType)){  
+                MessageBox.confirm(this._oResourceBundle.getText("xmsg.Message12",[mActionType]), {
+                    onClose: function(oAction) {
+                        if (oAction === MessageBox.Action.OK) {
+                            this._sendMultipleRequestForApproval(oSelectedItems,mActionType);
+                        }
+                    }.bind(this)
+                 });
+            }
+        },
+        onPressClose:function(){
+            console.log("onPress Close")
         },
         onPressMultiApproval:function(oEvent){
             var oTable = this._oView.byId("idMappingTable");
@@ -77,7 +125,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                 return false;
             }
 
-            // 2. Second Validation For the Coments
+            // 2. Second Validation For the Coments for now only for rejected
             if(mFlagStatus==="REJECTED"){
                 for (var x in oSelectedItems) {
                     if(!oSelectedItems[x].ReviewNotes){
@@ -143,19 +191,27 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
                     "ReviewStatus": sStatus,
                     //"Racct":oSelectedObj.Racct,
                     "Bldat":oSelectedObj.Bldat,
-                    "Budat":oSelectedObj.Budat,
+                    "Budat":oSelectedObj.Budat || null,
                     "Usnam":oSelectedObj.Usnam,
                     //"Approver":sStatus,
                     //"ReviewNotes":this._oMainModel.getProperty("/oDialogComments/sDescription")
                     "ReviewNotes":oSelectedObj.ReviewNotes,
                     "ReviewDate":new Date(),
+                    "CrtdOn":oSelectedObj.CrtdOn || null
                     
                 }
                 //console.log(oSelectedObj)
                 aArray.push(oPayloadObj);
-            }       
+            }
+            const statusMap = {
+                APPROVED: "A",
+                REJECTED: "R",
+                OPEN: "O",
+                CLOSE: "C",
+                REVERSED:"R"
+            };
             var oPayload = {
-                "Approver":sStatus === "APPROVED" ? "A" : "R",
+                "Approver":statusMap[sStatus],
                 //"Message":"",
                 "Approved_Items": aArray
             };

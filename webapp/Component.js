@@ -35,7 +35,8 @@ sap.ui.define([
                     oDialogComments:{
                         sDescription:""
                     },
-                    bEditable:false
+                    bEditable:false,
+                    bSuperUserBtnsVisbile:false
                 });
                 this.setModel(oViewModel, "oMainModel");
                 // set the device model

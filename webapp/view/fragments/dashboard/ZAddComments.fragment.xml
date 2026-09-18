@@ -7,8 +7,8 @@
             </form:SimpleForm>
 		</content>
 		<buttons>
-            <Button type="Emphasized" tooltip="{i18n>xbut.Ok}" text="{i18n>xbut.Ok}" press="onPressAddDialogComments"/>
-			<Button type="Ghost" tooltip="{i18n>xbut.Close}" text="{i18n>xbut.Close}" icon="sap-icon://cancel" press="onDialogClose($event, 'AddComments')"/>
+            <Button type="Emphasized" tooltip="{i18n>xbtn.Ok}" text="{i18n>xbtn.Ok}" press="onPressAddDialogComments"/>
+			<Button type="Ghost" tooltip="{i18n>xbtn.Close}" text="{i18n>xbtn.Close}" icon="sap-icon://cancel" press="onDialogClose($event, 'AddComments')"/>
 		</buttons>
 	</Dialog>
 </core:FragmentDefinition>
