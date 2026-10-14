@@ -275,7 +275,7 @@ function (Controller,Fragment,MessageBox,MessageToast,BusyIndicator) {
         },
         _refreshTable:function(){
             this._oView.byId("idMappingSmartTable").rebindTable();
-            this._oView.byId("idMappingTable").removeSelections(true);
+            this._oView.byId("idMappingTable").clearSelection();
             this._oMainModel.setProperty("/bEditable",false);
         },
         //getStatusDetails(sStatus).code,
