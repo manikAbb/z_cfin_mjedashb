@@ -21,7 +21,7 @@ builder:
           name: ZCFINMJEDASHAPR
           description: MJE Approval Dashboard
           package: ZCFIN_FIORI
-          transport: CF2K960214
+          transport: CF2K962720
         exclude:
           - /test/
           - /localService/

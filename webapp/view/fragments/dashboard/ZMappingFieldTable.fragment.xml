@@ -10,6 +10,7 @@
                         <smartFilterBar:ControlConfiguration   key="UserTag" label="{i18n>xtit.UserTag}" index="5" groupId="_BASIC"  />
                          <smartFilterBar:ControlConfiguration   key="Tcode" label="{i18n>xtit.Tcode}" index="6" groupId="_BASIC"  />
                           <smartFilterBar:ControlConfiguration   key="Blart" label="{i18n>xtit.Blart}" index="7" groupId="_BASIC"  />
+                           <smartFilterBar:ControlConfiguration   key="ReviewStatus" label="{i18n>xtit.Status}" index="8" groupId="_BASIC"  />
                     </smartFilterBar:controlConfiguration>
                      </smartFilterBar:SmartFilterBar>
                     
