@@ -16,12 +16,15 @@
                 select=".onFilterSelect"
                 expandable="false"
                 expanded="true"
-                class="sapUiResponsiveContentPadding"
+                 class="customTabBar"
+                
+                
             >
                 <items>
                     <IconTabFilter
                         icon="sap-icon://home"
                         text="{i18n>xtit.TotalRquests}"
+                        tooltip="{oMainModel>/aCountReq}"
                         key="0"
                         count="{oMainModel>/aCountReq}"
                     >

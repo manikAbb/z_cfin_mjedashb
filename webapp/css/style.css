@@ -1,1 +1,13 @@
-/* Enter your custom styles here */
+.customTabBar .sapMITBFilter {
+    min-width: 8rem !important;
+}
+
+.customTabBar .sapMITBCount {
+    max-width: none !important;
+}
+
+.customTabBar .sapMITBText {
+   white-space: normal !important;
+    width: 120px;
+    text-align: center;
+}
