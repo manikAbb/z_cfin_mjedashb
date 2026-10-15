@@ -48,7 +48,7 @@
 
                         <ui:Table id="idMappingTable"   enableBusyIndicator="true" selectionMode="MultiToggle" busyIndicatorDelay="0">
                             <ui:rowMode>
-                                <rowmodes:Fixed rowCount="12" />
+                                <rowmodes:Fixed rowCount="10" />
                             </ui:rowMode>
                             <ui:columns>
                                  <ui:Column  width="100px" autoResizable="true"  filterProperty="Bukrs" sortProperty="Bukrs" showFilterMenuEntry="true">
