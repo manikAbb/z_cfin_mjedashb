@@ -41,7 +41,7 @@
                                 <Button icon="sap-icon://validate" tooltip="{i18n>xbtn.Approve}" text="{i18n>xbtn.Approve}" type="Emphasized" press="onPressMultiApproval" enabled="true" />
                                 <Button icon="sap-icon://cancel" tooltip="{i18n>xbtn.Reject}" text="{i18n>xbtn.Reject}" type="Emphasized" press="onPressMultiReject" enabled="true" />
                                 <Button icon="sap-icon://open-command-field"  text="{i18n>xbtn.Open}" press="oPressOpen($event, 'OPEN')"  visible="{oMainModel>/bSuperUserBtnsVisbile}"  type="Emphasized" />
-                                <Button icon="sap-icon://decline"  text="{i18n>xbtn.Close}"  press="oPressOpen($event, 'CLOSE')"  visible="{oMainModel>/bSuperUserBtnsVisbile}" type="Emphasized"  />
+                                <!-- <Button icon="sap-icon://decline"  text="{i18n>xbtn.Close}"  press="oPressOpen($event, 'CLOSE')"  visible="{oMainModel>/bSuperUserBtnsVisbile}" type="Emphasized"  /> -->
                                  <Button icon="sap-icon://media-reverse"  text="{i18n>xbtn.Reversed}"  press="oPressOpen($event, 'REVERSED')" visible="{oMainModel>/bSuperUserBtnsVisbile}" type="Emphasized"  />
                             </Toolbar>
                         </smartTable:customToolbar>
